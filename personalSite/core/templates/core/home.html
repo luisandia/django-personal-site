@@ -1,8 +1,16 @@
 {% extends 'core/base.html' %}
 
 {%block title %}Portada{% endblock %}
+{%block background %}{% load static %}{% static 'core/img/home-bg.jpg' %}{% endblock %}
+
+
+{%block headers %}
+<h1>Luis Andia</h1>
+<span class="subheading">Ciencias de la computacion</span>
+{% endblock %}
+
+
 
 {%block content %}
-<h1>Portada</h1>
-<p>contenido</p>
+
 {% endblock %}
