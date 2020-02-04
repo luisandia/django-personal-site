@@ -23,9 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'z(y(0^l+1)0=fa0fa+yslvqo&p#@c4^4^s5=ew7i@fqf#6_rbo'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['app','localhost']
+DEBUG = os.environ.get('DEBUG')
+ALLOWED_HOSTS = ['app', 'localhost']
+# MEDIA_ROOT = os.path.join(BASE_DIR, MEDIA_URL)
+# print(MEDIA_ROOT)
 
 
 # Application definition

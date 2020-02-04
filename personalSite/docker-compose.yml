@@ -2,6 +2,7 @@ version: "3"
 
 services:
   app:
+    restart: always
     build:
       dockerfile: Dockerfile.dev
       context: ./app
@@ -10,6 +11,8 @@ services:
     volumes:
       - ./app:/app
     command: python manage.py runserver 0.0.0.0:8000
+    env_file:
+      - ./.dev
   nginx:
     restart: always
     build:
