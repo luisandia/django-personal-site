@@ -12,3 +12,5 @@ WORKDIR /app
 COPY . /app
 RUN python manage.py collectstatic --no-input --clear
 CMD ["gunicorn", "personalSite.wsgi:application", "--workers=2", "--bind" ,"0.0.0.0:8000"]
+RUN useradd -ms /bin/bash user
+USER user
