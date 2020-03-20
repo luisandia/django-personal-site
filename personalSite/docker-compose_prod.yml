@@ -19,7 +19,7 @@ services:
       dockerfile: Dockerfile
       context: ./nginx
     ports:
-      - '3050:80'
+      - '80:80'
     volumes:
       - static_volume:/app/static  # <-- bind the static volume
       - media_volume:/app/media  # <-- bind the media volume
