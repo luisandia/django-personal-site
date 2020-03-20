@@ -66,9 +66,9 @@
 
 
     <!-- contenido -->
-	<!-- Contenido Principal -->
-	<div class="container">
-    {% block content %}{% endblock %}
+    <!-- Contenido Principal -->
+    <div class="container">
+        {% block content %}{% endblock %}
     </div>
 
     <!-- Pié de página -->
@@ -78,7 +78,7 @@
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <ul class="list-inline text-center">
                         <li class="list-inline-item">
-                            <a href="mailto:luisandiamamani@gmail.com">
+                            <a target="_blank" href="mailto:luisandiamamani@gmail.com">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
@@ -86,7 +86,7 @@
                             </a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="https://github.com/luisandia">
+                            <a target="_blank" href="https://github.com/luisandia">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -114,4 +114,5 @@
     <script src="{% static 'core/js/clean-blog.min.js' %}"></script>
 
 </body>
+
 </html>
