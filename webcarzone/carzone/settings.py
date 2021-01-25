@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'pages',
     'cars',
     'ckeditor',
+    'django.contrib.humanize',
+    'django.contrib.sites',
 ]
 
 MIDDLEWARE = [
