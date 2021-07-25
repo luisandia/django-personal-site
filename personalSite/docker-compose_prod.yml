@@ -1,5 +1,14 @@
 version: "3"
 
+networks:
+  vpcbr:
+    name: personal_projects_default
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16
+          gateway: 10.5.0.1
+
 services:
   app:
     build:
@@ -9,10 +18,12 @@ services:
       - "8000:8000"
     volumes:
       - ./app:/app
-      - static_volume:/app/static  # <-- bind the static volume
-      - media_volume:/app/media  # <-- bind the media volume
+      - static_volume:/app/personal_site_static  # <-- bind the static volume
+      - media_volume:/app/personal_site_media  # <-- bind the media volume
     env_file:
       - ./.prod
+    networks:
+      - vpcbr
   nginx:
     restart: always
     build:
@@ -20,9 +31,15 @@ services:
       context: ./nginx
     ports:
       - '80:80'
+      - '443:443'
     volumes:
-      - static_volume:/app/static  # <-- bind the static volume
-      - media_volume:/app/media  # <-- bind the media volume
+      - static_volume:/app/personal_site_static  # <-- bind the static volume
+      - media_volume:/app/personal_site_media  # <-- bind the media volume
+    depends_on:
+      - app
+    networks:
+      vpcbr:
+        ipv4_address: 10.5.0.6
 
 volumes:
   static_volume:  # <-- declare the static volume
