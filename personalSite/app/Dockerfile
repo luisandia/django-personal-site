@@ -9,9 +9,10 @@ RUN pip install -r /requirements.txt
 
 RUN mkdir /app
 WORKDIR /app
+RUN useradd -ms /bin/bash dockeruser
+# RUN usermod -aG dockeruser root
+
 COPY . /app
+RUN chown -R dockeruser:dockeruser /app
 
 CMD sh ./entrypoint.sh
-
-RUN useradd -ms /bin/bash user
-USER user

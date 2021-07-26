@@ -1,8 +1,7 @@
-version: "3"
+version: "2"
 
 networks:
-  vpcbr:
-    name: personal_projects_default
+  personalsite_network:
     driver: bridge
     ipam:
       config:
@@ -23,7 +22,7 @@ services:
     env_file:
       - ./.prod
     networks:
-      - vpcbr
+      - personalsite_network
   nginx:
     restart: always
     build:
@@ -38,7 +37,7 @@ services:
     depends_on:
       - app
     networks:
-      vpcbr:
+      personalsite_network:
         ipv4_address: 10.5.0.6
 
 volumes:
