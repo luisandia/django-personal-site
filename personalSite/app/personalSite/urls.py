@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf import settings
+from django.urls.conf import include
 from core import views
 from portfolio import views as portfolio_views
 
@@ -26,6 +27,8 @@ urlpatterns = [
     path('about-me/', views.about, name="about"),
     path('portfolio/', portfolio_views.portfolio, name="portfolio"),
     path('contact/', views.contact, name="contact"),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+
 ]
 
 

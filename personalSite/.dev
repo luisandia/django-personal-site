@@ -1,2 +1,0 @@
-DEBUG=1
-DJANGO_ALLOWED_HOSTS=app 3.133.47.14 localhost 127.0.0.1 [::1]

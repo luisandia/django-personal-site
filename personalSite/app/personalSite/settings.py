@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'z(y(0^l+1)0=fa0fa+yslvqo&p#@c4^4^s5=ew7i@fqf#6_rbo'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = int(os.environ.get("DEBUG", default=0))
+DEBUG = int(os.environ.get("DEBUG", default=1))
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS") and os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 # MEDIA_ROOT = os.path.join(BASE_DIR, MEDIA_URL)
 # print(MEDIA_ROOT)
@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
-    'portfolio.apps.PortfolioConfig'
+    'portfolio.apps.PortfolioConfig',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -116,6 +117,20 @@ USE_L10N = True
 
 USE_TZ = True
 
+
+CKEDITOR_UPLOAD_PATH = "ck_editor_uploads/"
+CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 300,
+        'width': '100%',
+        'extraPlugins': ','.join([
+            'uploadimage',  # the upload image feature
+        ]),
+    },
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
