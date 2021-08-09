@@ -5,7 +5,7 @@ import json
 from django.core import serializers
 
 def portfolio(request):
-    projects = Project.objects.all()
+    projects = Project.objects.all().order_by('order')
     data = serializers.serialize('json', projects)
 
 
